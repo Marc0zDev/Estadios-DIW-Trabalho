@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Online</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+
+</head>
+
+<style>
+    .content-container {
+        margin-bottom: 70px; /* Ajuste esta margem conforme necessário para acomodar o tamanho do seu footer */
+    }
+</style>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://img.freepik.com/vetores-gratis/modelo-de-logotipo-de-futebol-desenhado-a-mao_23-2149364522.jpg" width="80px" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Página Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Estadios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre nós</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mt-4">
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://img.freepik.com/fotos-gratis/jogadores-de-futebol-em-acao-no-estadio-profissional_654080-1820.jpg" class="d-block w-100" alt="Imagem 1" style="width: 250px; height: 300px;">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://img.freepik.com/fotos-gratis/estadio-de-futebol-com-luzes-ao-fundo_90220-1723.jpg" class="d-block w-100" alt="Imagem 2" style="width: 250px; height: 300px;">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://img.freepik.com/fotos-gratis/fas-da-noite-do-campeonato-sentados-em-arquibancadas-geradas-por-ia_188544-8999.jpg" class="d-block w-100" alt="Imagem 3" style="width: 250px; height: 300px;">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <h2 class="mt-5">Localize</h2>
+        <hr>
+        
+        <div id="map" style="width: 100%; height: 250px;"></div>
+
+ 
+
+        <h2 class="mt-5">Estadios do Mundo</h2>
+        <hr>
+
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <div class="card" style="height: 22rem;">
+                        <img src="https://img.freepik.com/fotos-gratis/foto-grande-angular-de-um-estadio-circular-e-outras-construcoes-ao-redor-do-campo-proximo-ao-oceano_181624-14821.jpg" class="card-img-top" alt="Produto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Estadio Catar</h5>
+                            <p class="card-text">O estádio da Copa é uma obra de beleza arquitetônica que ganha vida com a energia intensa dos torcedores</p>
+                            <a href="pagina2.html" class="btn btn-primary">Ver detalhes</a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-3">
+                    <div class="card" style="height: 22rem;">
+                        <img style="height: 10rem;" src="" class="card-img-top" alt="Produto 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Estadio Copa do Mundo</h5>
+                            <p class="card-text">Durante os jogos, a beleza arquitetônica do estádio ganha vida com a energia intensa dos torcedores.</p>
+                            <a href="#"  data-bs-toggle="modal" data-bs-target="#detalhesModal" class="btn btn-primary">Ver detalhes</a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-3">
+                    <div class="card" style="height: 22rem;">
+                        <img style="height: 10rem;" src="https://img.freepik.com/fotos-gratis/estadio-de-barcelona-de-helicoptero-espanha_1398-4989.jpg" class="card-img-top" alt="Produto 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Estadio Barceloa</h5>
+                            <p class="card-text">O Camp Nou é um templo do futebol onde a arquitetura se une à paixão dos torcedores.</p>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#detalhesModal2" class="btn btn-primary">Ver detalhes</a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-3">
+                    <div class="card" style="height: 22rem;">
+                        <img style="height: 10rem;" src="https://img.freepik.com/fotos-premium/vista-aerea-da-pampulha-em-belo-horizonte-com-os-estadios-mineirinho-e-mineirao-ao-fundo_70216-7567.jpg" class="card-img-top" alt="Produto 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Estadio 4</h5>
+                            <p class="card-text">O Mineirão é um icônico estádio de futebol em Belo Horizonte, conhecido por sua arquitetura imponente.</p>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detalhesModal3">Ver detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    <div class="modal fade" id="detalhesModal" tabindex="-1" aria-labelledby="detalhesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg"> 
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detalhesModalLabel">Detalhes do Estádio</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src=""  class="img-fluid" alt="Estádio 1">
+                    <p>Nome do Estádio: Stadium Catare</p>
+                    <p>Descrição:Estadio construido no Catar</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="detalhesModal2" tabindex="-1" aria-labelledby="detalhesModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detalhesModalLabel2">Detalhes do Estádio 2</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://img.freepik.com/fotos-gratis/estadio-de-barcelona-de-helicoptero-espanha_1398-4989.jpg" class="img-fluid" alt="Estádio 2">
+                    <p>Nome do Estádio:Estadio na catalunha</p>
+                    <p>Descrição: Mais uma bela construção</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="detalhesModal3" tabindex="-1" aria-labelledby="detalhesModal3Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detalhesModal3Label">Detalhes do Estádio 3</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://img.freepik.com/fotos-premium/vista-aerea-da-pampulha-em-belo-horizonte-com-os-estadios-mineirinho-e-mineirao-ao-fundo_70216-7567.jpg" class="img-fluid" alt="Imagem do Estádio 3">
+                    <p>Nome do Estádio: Estadio em Minas Gerais</p>
+                    <p>Descrição: Construido para copa de 2014</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-primary text-light text-center py-3 fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-start">
+                    <a class="text-light" href="#">Sobre Nós</a>
+                </div>
+                <div class="col-md-6 text-end">
+                    Contatos: marcosvinicius08000@gmail.com | Codigo Pessoa: 1484102 | Marcos Vinicus Gomes
+                </div>
+            </div>
+        </div>
+    </footer>
+        
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="mapa.js"></script>
+
+</body>
+
+
+</html>
+
